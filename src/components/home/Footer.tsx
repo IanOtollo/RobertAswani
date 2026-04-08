@@ -37,13 +37,13 @@ export default function Footer() {
         <div className="flex flex-col gap-6 md:items-end">
           <h4 className="font-mono text-[10px] text-[#3D4F5E] uppercase tracking-[0.3em]">Connectivity</h4>
           <div className="flex gap-6">
-            <a href="#" className="text-[#3D4F5E] hover:text-[#E8EDF2] transition-colors">
+            <a href="https://github.com/IanOtollo" target="_blank" rel="noopener noreferrer" className="text-[#3D4F5E] hover:text-[#2D7DD2] transition-colors">
               <Terminal size={20} />
             </a>
-            <a href="#" className="text-[#3D4F5E] hover:text-[#E8EDF2] transition-colors">
+            <a href="https://wa.me/254757114743" target="_blank" rel="noopener noreferrer" className="text-[#3D4F5E] hover:text-[#2D7DD2] transition-colors">
               <Share2 size={20} />
             </a>
-            <a href="#" className="text-[#3D4F5E] hover:text-[#E8EDF2] transition-colors">
+            <a href="https://www.linkedin.com/in/robert-aswani" target="_blank" rel="noopener noreferrer" className="text-[#3D4F5E] hover:text-[#2D7DD2] transition-colors">
               <Globe size={20} />
             </a>
           </div>

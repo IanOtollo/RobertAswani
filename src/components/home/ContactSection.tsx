@@ -107,14 +107,24 @@ export default function ContactSection() {
         </form>
 
         <div className="mt-12 flex flex-col md:flex-row gap-12 font-mono text-[12px] text-[#7A8B99]">
-          <div>
-            <span className="block text-[#3D4F5E] uppercase mb-1">Direct</span>
-            wa.me/254723791049
-          </div>
-          <div>
-            <span className="block text-[#3D4F5E] uppercase mb-1">Corporate</span>
-            LinkedIn.com/in/robert-aswani
-          </div>
+          <a 
+            href="https://wa.me/254757114743" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="group/link cursor-pointer"
+          >
+            <span className="block text-[#3D4F5E] uppercase mb-1 group-hover/link:text-[#2D7DD2] transition-colors">Direct</span>
+            <span className="group-hover/link:text-[#E8EDF2] transition-colors">+254 757 114 743</span>
+          </a>
+          <a 
+            href="https://www.linkedin.com/in/robert-aswani" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="group/link cursor-pointer"
+          >
+            <span className="block text-[#3D4F5E] uppercase mb-1 group-hover/link:text-[#2D7DD2] transition-colors">Corporate</span>
+            <span className="group-hover/link:text-[#E8EDF2] transition-colors">LinkedIn.com/in/robert-aswani</span>
+          </a>
         </div>
       </div>
     </section>

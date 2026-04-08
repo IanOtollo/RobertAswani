@@ -77,7 +77,7 @@ export default function PricingSection() {
             </ul>
 
             <a 
-              href={`https://wa.me/254723791049?text=Hello, I'm interested in the ${tier.name} package.`}
+              href={`https://wa.me/254757114743?text=Hello, I'm interested in the ${tier.name} package.`}
               target="_blank"
               rel="noopener noreferrer"
               className={`w-full py-4 font-mono text-[12px] font-bold uppercase tracking-widest text-center transition-all duration-300 ${
