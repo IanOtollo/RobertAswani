@@ -6,96 +6,136 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 
-const DESIGN_CATEGORIES = ["ALL", "PCB DESIGNS", "CAD MODELS", "2D DRAWINGS", "SCHEMATICS"];
+const CATEGORIES = ["ALL", "PCB", "CAD", "SCHEMATICS", "GD&T"];
 
-const DESIGNS = [
-  { id: 1, title: "Micro-Controller Hub", category: "PCB DESIGNS", img: "https://picsum.photos/seed/pcb1/800/600" },
-  { id: 2, title: "Autonomous Drone Frame", category: "CAD MODELS", img: "https://picsum.photos/seed/pcb2/800/600" },
-  { id: 3, title: "Solar Inverter Sch", category: "SCHEMATICS", img: "https://picsum.photos/seed/pcb3/800/600" },
-  { id: 4, title: "Industrial Rack Mount", category: "2D DRAWINGS", img: "https://picsum.photos/seed/pcb4/800/600" },
-  { id: 5, title: "High-Speed Processor", category: "PCB DESIGNS", img: "https://picsum.photos/seed/pcb5/800/600" },
-  { id: 6, title: "Robotic Arm Joint", category: "CAD MODELS", img: "https://picsum.photos/seed/pcb6/800/600" },
-  { id: 7, title: "Power Distribution", category: "PCB DESIGNS", img: "https://picsum.photos/seed/pcb7/800/600" },
-  { id: 8, title: "Sensor Array Mount", category: "CAD MODELS", img: "https://picsum.photos/seed/pcb8/800/600" },
+const PROJECTS = [
+  { 
+    id: 1, 
+    title: "Micro-Controller Core Hub", 
+    category: "PCB", 
+    specs: "4-Layer / Gerber / BOM",
+    img: "https://picsum.photos/seed/pcb1/800/600" 
+  },
+  { 
+    id: 2, 
+    title: "Autonomous Drone Assembly", 
+    category: "CAD", 
+    specs: "3D Assembly / STEP / DXF",
+    img: "https://picsum.photos/seed/cad1/800/600" 
+  },
+  { 
+    id: 3, 
+    title: "Solar Inverter Architecture", 
+    category: "SCHEMATICS", 
+    specs: "System Design / PDF / Altium",
+    img: "https://picsum.photos/seed/pcb2/800/600" 
+  },
+  { 
+    id: 4, 
+    title: "Industrial Rack Unit", 
+    category: "GD&T", 
+    specs: "Manufacturing / 2D Print",
+    img: "https://picsum.photos/seed/cad2/800/600" 
+  },
+  { 
+    id: 5, 
+    title: "High-Speed Data Bus", 
+    category: "PCB", 
+    specs: "6-Layer / Impedance Match",
+    img: "https://picsum.photos/seed/pcb3/800/600" 
+  },
+  { 
+    id: 6, 
+    title: "Robotic Joint Actuator", 
+    category: "CAD", 
+    specs: "Precision Gearbox / SolidWorks",
+    img: "https://picsum.photos/seed/cad3/800/600" 
+  },
 ];
 
 export default function DesignsPage() {
   const [filter, setFilter] = useState("ALL");
-  const filteredDesigns = filter === "ALL" ? DESIGNS : DESIGNS.filter(d => d.category === filter);
+  const filtered = filter === "ALL" ? PROJECTS : PROJECTS.filter(p => p.category === filter);
 
   useEffect(() => {
-    gsap.from(".design-card", {
-      opacity: 0,
-      y: 20,
-      stagger: 0.05,
-      duration: 0.6,
-      ease: "power2.out"
-    });
+    gsap.fromTo(".project-card", 
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, stagger: 0.1, duration: 0.8, ease: "power3.out" }
+    );
   }, [filter]);
 
   return (
-    <main className="min-h-screen pt-32 pb-24 px-6 md:px-24 bg-slate-950 text-slate-100">
-      <section className="max-w-7xl mx-auto">
-        <header className="mb-16 border-l-2 border-slate-100 pl-8">
-          <h1 className="text-5xl md:text-7xl font-display font-bold mb-4 tracking-tighter uppercase text-slate-100">
-            DESIGN <span className="text-slate-500">SHOWCASE</span>
+    <main className="min-h-screen bg-[#080C10] pt-40 pb-24 px-6 md:px-12">
+      <div className="max-w-7xl mx-auto">
+        <header className="mb-20">
+          <div className="font-mono text-[11px] text-[#3D4F5E] tracking-[0.4em] uppercase mb-6">
+            [ ARCHIVE REDUX // 2026 ]
+          </div>
+          <h1 className="font-display font-bold text-5xl md:text-8xl text-[#E8EDF2] tracking-tighter uppercase mb-8">
+            Technical <span className="text-[#3D4F5E]">Showcase</span>
           </h1>
-          <p className="font-mono text-slate-400 max-w-2xl text-sm uppercase tracking-widest leading-relaxed">
-            Technical archive consisting of precision-engineered systems, 
-            ranging from high-speed PCB layouts to complex mechanical assemblies.
+          <p className="max-w-2xl font-mono text-[14px] text-[#7A8B99] leading-relaxed uppercase">
+            A production-ready technical archive consisting of precision hardware systems and 3D mechanical assemblies. 
+            All designs are Gerber-verified or DFM-optimized.
           </p>
         </header>
 
         {/* Filter Bar */}
-        <div className="flex flex-wrap gap-4 mb-16 border-b border-slate-900 pb-8">
-          {DESIGN_CATEGORIES.map((cat) => (
+        <div className="flex flex-wrap gap-x-8 gap-y-4 mb-16 border-b border-[#1C2A36] pb-6">
+          {CATEGORIES.map(cat => (
             <button
               key={cat}
               onClick={() => setFilter(cat)}
-              className={`px-6 py-2 font-mono text-[10px] tracking-[0.2em] transition-all duration-300 uppercase border ${
-                filter === cat ? "border-slate-100 text-slate-100 bg-slate-800" : "border-slate-800 text-slate-500 hover:border-slate-600"
+              className={`font-mono text-[11px] tracking-widest uppercase transition-colors relative pb-6 ${
+                filter === cat ? "text-[#E8EDF2]" : "text-[#3D4F5E] hover:text-[#7A8B99]"
               }`}
             >
               {cat}
+              {filter === cat && (
+                <motion.div layoutId="archive-filter" className="absolute bottom-[-1px] left-0 right-0 h-[1px] bg-[#2D7DD2]" />
+              )}
             </button>
           ))}
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <AnimatePresence mode="popLayout">
-            {filteredDesigns.map((design) => (
-              <motion.div
-                layout
-                key={design.id}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="design-card group cursor-pointer relative aspect-[4/3] overflow-hidden bg-slate-900 border border-slate-800"
-              >
-                <Link href={`/designs/${design.id}`}>
-                  <Image
-                    src={design.img}
-                    alt={design.title}
-                    fill
-                    className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
-                  />
-                  
-                  {/* Subtle Professional Overlay */}
-                  <div className="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 border border-slate-100/20">
-                    <span className="text-[10px] text-slate-300 font-mono tracking-[0.3em] mb-2 uppercase">{design.category}</span>
-                    <h3 className="text-xl font-display font-bold text-white mb-6 uppercase tracking-tight">{design.title}</h3>
-                    <div className="font-mono text-[10px] tracking-widest text-slate-400 group-hover:text-white transition-colors">
-                      VIEW FULL SPECS [+]
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </AnimatePresence>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
+          {filtered.map((project) => (
+            <Link key={project.id} href={`/designs/${project.id}`} className="project-card group">
+              <div className="relative aspect-[4/3] overflow-hidden bg-[#111820] border border-[#1C2A36] rounded-[2px] mb-6">
+                <Image 
+                  src={project.img}
+                  alt={project.title}
+                  fill
+                  className="object-cover grayscale brightness-90 contrast-110 transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0 group-hover:brightness-100"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#080C10] via-transparent to-transparent opacity-60" />
+                
+                {/* ID Tag */}
+                <div className="absolute top-4 left-4 font-mono text-[9px] text-[#E8EDF2]/40 uppercase tracking-tighter">
+                  REF. 00{project.id} // HARDWARE
+                </div>
+              </div>
+
+              <div className="px-1">
+                <div className="flex justify-between items-start mb-3">
+                  <h3 className="font-display font-bold text-xl text-[#E8EDF2] group-hover:text-[#2D7DD2] transition-colors leading-tight uppercase">
+                    {project.title}
+                  </h3>
+                  <span className="font-mono text-[9px] text-[#2D7DD2] border border-[#2D7DD2]/30 px-2 py-0.5 rounded-sm whitespace-nowrap">
+                    {project.category}
+                  </span>
+                </div>
+                <p className="font-mono text-[11px] text-[#3D4F5E] uppercase tracking-widest">
+                  {project.specs}
+                </p>
+              </div>
+            </Link>
+          ))}
         </div>
-      </section>
+      </div>
     </main>
   );
 }
+
 

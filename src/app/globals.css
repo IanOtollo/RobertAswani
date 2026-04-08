@@ -1,86 +1,105 @@
 @import "tailwindcss";
 
 :root {
-  --background: #020617; /* Slate-950 */
-  --foreground: #f8fafc; /* Slate-50 */
-  --primary: #94a3b8;    /* Slate-400 */
-  --secondary: #cbd5e1;  /* Slate-300 */
-  --accent: #334155;     /* Slate-700 */
+  /* Colors - IOMTechs Engineering Palette */
+  --bg-primary: #080C10;
+  --bg-secondary: #0D1117;
+  --bg-surface: #111820;
+  --bg-elevated: #161E28;
+  --accent-blue: #2D7DD2;
+  --accent-blue-dim: #1A4A80;
+  --accent-cyan: #0CF0C8;
+  --text-primary: #E8EDF2;
+  --text-secondary: #7A8B99;
+  --text-muted: #3D4F5E;
+  --border: #1C2A36;
+  --border-bright: #2D3F50;
+
+  /* Typography */
+  --font-display: var(--font-syne), sans-serif;
+  --font-mono: var(--font-dm-mono), monospace;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
-  --color-accent: var(--accent);
-  --font-display: var(--font-orbitron);
-  --font-mono: var(--font-space-mono);
+  --color-background: var(--bg-primary);
+  --color-foreground: var(--text-primary);
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-cyan: var(--accent-cyan);
+  --font-display: var(--font-syne);
+  --font-mono: var(--font-dm-mono);
 }
 
-/* Professional Engineering Grid */
-.blueprint-grid {
-  background-image: 
-    linear-gradient(to right, rgba(148, 163, 184, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(148, 163, 184, 0.03) 1px, transparent 1px);
-  background-size: 30px 30px;
+/* Base Styles */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
-.dot-matrix {
-  background-image: radial-gradient(rgba(148, 163, 184, 0.05) 1px, transparent 1px);
-  background-size: 15px 15px;
+/* Subtle Dot Grid Background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(var(--text-muted) 0.5px, transparent 0.5px);
+  background-size: 32px 32px;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: -1;
 }
 
-/* Formal Custom Cursor */
+/* Custom Cursor with Difference Blending */
 .custom-cursor {
-  width: 14px;
-  height: 14px;
-  border: 1px solid var(--primary);
+  width: 8px;
+  height: 8px;
+  background-color: var(--text-primary);
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
-  z-index: 10000;
+  z-index: 999999;
   transform: translate(-50%, -50%);
-  transition: width 0.3s, height 0.3s, opacity 0.3s;
+  mix-blend-mode: difference;
+  transition: width 0.3s cubic-bezier(0.2, 1, 0.2, 1), 
+              height 0.3s cubic-bezier(0.2, 1, 0.2, 1), 
+              background-color 0.3s;
 }
 
-.custom-cursor::before,
-.custom-cursor::after {
-  content: '';
-  position: absolute;
-  background-color: var(--primary);
-  opacity: 0.5;
+.custom-cursor.active {
+  width: 32px;
+  height: 32px;
+  background-color: var(--accent-blue);
 }
 
-.custom-cursor::before {
-  width: 100%;
-  height: 1px;
-  top: 50%;
-  left: 0;
+/* Sharp Engineering UI */
+.border-eng {
+  border: 1px solid var(--border);
+  border-radius: 2px;
 }
 
-.custom-cursor::after {
-  width: 1px;
-  height: 100%;
-  left: 50%;
-  top: 0;
+.shadow-card {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.4), 0 0 0 1px rgba(45,125,210,0.06);
 }
 
-/* Utility Animations */
-.clip-reveal {
-  clip-path: inset(0 100% 0 0);
-  transition: clip-path 1.2s cubic-bezier(0.2, 1, 0.2, 1);
+/* GSAP SplitText Fallback / Utilities */
+.word-reveal {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
 }
 
-.clip-reveal.active {
-  clip-path: inset(0 0 0 0);
+.word-reveal div {
+  display: inline-block;
+  transform: translateY(100%);
 }
 
-html, body {
-  overflow-x: hidden;
-  max-width: 100vw;
+/* Progress Bar */
+.scroll-progress {
+  transition: width 0.1s linear;
 }
 
+/* Lenis Smooth Scroll */
 html.lenis {
   height: auto;
 }
@@ -89,3 +108,14 @@ html.lenis {
   scroll-behavior: auto !important;
 }
 
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
