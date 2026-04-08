@@ -6,11 +6,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 const projects = [
-  { id: 1, name: "Power Management Board", category: "PCB", img: "circuit_board" },
-  { id: 2, name: "Motor Controller Assembly", category: "CAD", img: "mechanical_engineering" },
-  { id: 3, name: "IoT Sensor Hub", category: "PCB", img: "modern_electronics" },
-  { id: 4, name: "Precision Enclosure", category: "CAD", img: "industrial_design" },
-  { id: 5, name: "Dual-Layer Switch", category: "PCB", img: "microchip_schematic" },
+  { id: 1, name: "Power Management Board", category: "PCB", img: "photo-1581094794329-c8112a89af12" },
+  { id: 2, name: "Motor Controller Assembly", category: "CAD", img: "photo-1581092580497-e0d23cbdf1dc" },
+  { id: 3, name: "IoT Sensor Hub", category: "PCB", img: "photo-1550751827-4bd374c3f58b" },
+  { id: 4, name: "Precision Enclosure", category: "CAD", img: "photo-1504917595217-d4dc5f649e69" },
+  { id: 5, name: "Dual-Layer Switch", category: "PCB", img: "photo-1517077304055-6e89abbf09b0" },
 ];
 
 export default function WorksSection() {
@@ -73,7 +73,7 @@ export default function WorksSection() {
             >
               <Link href={`/designs/${project.id}`} className="block w-full h-full relative">
                 <Image 
-                  src={`https://picsum.photos/seed/${project.img}/800/600`}
+                  src={`https://images.unsplash.com/${project.img}?auto=format&fit=crop&q=80&w=800`}
                   alt={project.name}
                   fill
                   className="object-cover brightness-[0.85] contrast-[1.1] transition-transform duration-700 group-hover:scale-110"

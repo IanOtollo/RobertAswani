@@ -14,8 +14,8 @@ export default function AboutSection() {
           {/* Duotone Filter via CSS */}
           <div className="absolute inset-0 z-10 bg-[#2D7DD2]/20 mix-blend-color" />
           <Image 
-            src="https://picsum.photos/seed/tech_circuit/480/600" 
-            alt="Engineering Hardware" 
+            src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800" 
+            alt="PCB Engineering Hardware" 
             fill 
             priority
             className="object-cover grayscale brightness-90 contrast-125 transition-transform duration-700 group-hover:scale-105"

@@ -14,42 +14,42 @@ const PROJECTS = [
     title: "Micro-Controller Core Hub", 
     category: "PCB", 
     specs: "4-Layer / Gerber / BOM",
-    img: "https://picsum.photos/seed/pcb1/800/600" 
+    img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800" 
   },
   { 
     id: 2, 
     title: "Autonomous Drone Assembly", 
     category: "CAD", 
     specs: "3D Assembly / STEP / DXF",
-    img: "https://picsum.photos/seed/cad1/800/600" 
+    img: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=800" 
   },
   { 
     id: 3, 
     title: "Solar Inverter Architecture", 
     category: "SCHEMATICS", 
     specs: "System Design / PDF / Altium",
-    img: "https://picsum.photos/seed/pcb2/800/600" 
+    img: "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&q=80&w=800" 
   },
   { 
     id: 4, 
     title: "Industrial Rack Unit", 
     category: "GD&T", 
     specs: "Manufacturing / 2D Print",
-    img: "https://picsum.photos/seed/cad2/800/600" 
+    img: "https://images.unsplash.com/photo-1504917595217-d4dc5f649e69?auto=format&fit=crop&q=80&w=800" 
   },
   { 
     id: 5, 
     title: "High-Speed Data Bus", 
     category: "PCB", 
     specs: "6-Layer / Impedance Match",
-    img: "https://picsum.photos/seed/pcb3/800/600" 
+    img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800" 
   },
   { 
     id: 6, 
     title: "Robotic Joint Actuator", 
     category: "CAD", 
     specs: "Precision Gearbox / SolidWorks",
-    img: "https://picsum.photos/seed/cad3/800/600" 
+    img: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&q=80&w=800" 
   },
 ];
 
