@@ -22,6 +22,11 @@ const nextConfig: NextConfig = {
     };
     return config;
   },
+  turbopack: {
+    resolveAlias: {
+      three: 'three',
+    },
+  },
 };
 
 
