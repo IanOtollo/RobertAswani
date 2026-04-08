@@ -17,6 +17,7 @@ export default function AboutSection() {
             src="https://picsum.photos/seed/robert/480/600" 
             alt="Robert Aswani" 
             fill 
+            priority
             className="object-cover grayscale brightness-90 contrast-125 transition-transform duration-700 group-hover:scale-105"
           />
           
